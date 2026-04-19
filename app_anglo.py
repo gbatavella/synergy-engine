@@ -19,7 +19,7 @@ st.markdown("""
 
 # --- HEADER RaaS ---
 st.title("Your AI Sales Clone Works 24/7")
-st.header("The First <span class='highlight'>RaaS</span> (Robots as a Service) for High-Ticket Sales", unsafe_allow_html=True)
+st.markdown("## The First <span class='highlight'>RaaS</span> (Robots as a Service) for High-Ticket Sales", unsafe_allow_html=True)
 
 st.markdown("""
 ### Stop buying static tools that break. 
