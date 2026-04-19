@@ -1,104 +1,73 @@
 import streamlit as st
 import pandas as pd
 
-# Configuración de Élite
+# Configuración de Élite (Mantiene la página ancha y profesional)
 st.set_page_config(page_title="Synergy AI | RaaS Elite Sales Engine", page_icon="🚀", layout="wide")
 
-# CSS AGRESIVO - Forzando el Modo Oscuro y Estilos High-Ticket
+# CSS Minimalista: Solo tocamos el botón y el brillo de la marca
 st.markdown("""
     <style>
-    /* Forzar fondo oscuro en toda la aplicación */
-    .stApp {
-        background-color: #0e1117 !important;
+    /* Botón High-Ticket: Elegante y moderno */
+    div.stButton > button {
+        background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+        color: white;
+        border-radius: 8px;
+        border: none;
+        box-shadow: 0 4px 14px 0 rgba(255, 75, 43, 0.39);
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
     }
-    
-    /* Forzar texto blanco para contrastar */
-    html, body, [class*="css"], h1, h2, h3, h4, h5, h6, p, span {
-        color: #ffffff !important;
+    div.stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px 0 rgba(255, 75, 43, 0.6);
     }
-    
-    /* Botones nucleares (Gradiente Naranja/Fuego) */
-    .stButton>button {
-        background: linear-gradient(45deg, #ff4b1f, #ff9068) !important;
-        color: white !important;
-        border-radius: 8px !important;
-        border: none !important;
-        padding: 15px 30px !important;
-        font-size: 18px !important;
-        font-weight: bold !important;
-        width: 100% !important;
-        box-shadow: 0 4px 15px rgba(255, 75, 31, 0.3) !important;
-        transition: 0.3s !important;
-    }
-    .stButton>button:hover {
-        transform: translateY(-2px) !important;
-        box-shadow: 0 6px 20px rgba(255, 75, 31, 0.6) !important;
-    }
-    
-    /* Resaltado de palabras clave */
-    .highlight {
-        color: #ff4b1f !important;
-        font-weight: 900 !important;
-        text-shadow: 0px 0px 10px rgba(255,75,31,0.5);
-    }
-    
-    /* Cajas de alerta estilizadas */
-    div[data-testid="stInfo"] {
-        background-color: rgba(255, 75, 31, 0.05) !important;
-        border-left: 4px solid #ff4b1f !important;
-        color: white !important;
-    }
-    
-    /* Separadores sutiles */
-    hr {
-        border-color: #2b303b !important;
+    /* Texto brillante para RaaS */
+    .elite-text {
+        color: #FF4B2B;
+        font-weight: bold;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# --- HEADER RaaS ---
-st.markdown("<br>", unsafe_allow_html=True) # Espacio inicial
+# --- HEADER ---
 st.title("Your AI Sales Clone Works 24/7")
-st.markdown("## The First <span class='highlight'>RaaS</span> (Robots as a Service) for High-Ticket Sales", unsafe_allow_html=True)
+st.markdown("### The First <span class='elite-text'>RaaS (Robots as a Service)</span> for High-Ticket Sales", unsafe_allow_html=True)
+
+st.write("---")
 
 st.markdown("""
-### Stop buying static tools that break. 
-Subscribe to the **Swarm Evolution Protocol (SEP)**. Our agents adapt weekly to the changing web, 
-ensuring your sales machine never stops, regardless of platform updates or anti-bot defenses.
+**Stop buying static tools that break.** Subscribe to the **Swarm Evolution Protocol (SEP)**. Our agents adapt weekly to the changing web, ensuring your sales machine never stops, regardless of platform updates or anti-bot defenses.
 """)
 
-st.markdown("<br>", unsafe_allow_html=True)
 st.button("🔥 DEPLOY MY SWARM NOW")
 st.caption("Instant access after payment. 3-minute deployment setup.")
-st.markdown("<br>", unsafe_allow_html=True)
 
-# --- FEATURES ---
+st.write("---")
+
+# --- FEATURES (Usando st.metric para un look de Dashboard Profesional) ---
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.markdown("<h2 style='color:#ff4b1f !important;'>2.6x</h2>", unsafe_allow_html=True)
-    st.write("**Better Conversion than Cold Email**")
+    st.metric(label="Conversion vs Cold Email", value="2.6x")
 with col2:
-    st.markdown("<h2 style='color:#ff4b1f !important;'>+10k</h2>", unsafe_allow_html=True)
-    st.write("**Analyzed Prospects per Hour**")
+    st.metric(label="Analyzed Prospects per Hour", value="+10k")
 with col3:
-    st.markdown("<h2 style='color:#ff4b1f !important;'>100%</h2>", unsafe_allow_html=True)
-    st.write("**Operational Autonomy**")
+    st.metric(label="Operational Autonomy", value="100%")
 
-st.divider()
+st.write("---")
 
 # --- THE 90-DAY EDGE ---
 st.subheader("🛡️ The 90-Day Evolution Guarantee")
-st.info("""
-**Zero Friction. Zero Downtime.** Your subscription includes **90 days of full Evolution Support**. 
-If the web changes, our 'Sentinel' agents deploy a patch to your system within 24 hours. 
-Your business stays operational while the world adapts.
-""")
+st.info("**Zero Friction. Zero Downtime.** Your subscription includes **90 days of full Evolution Support**. If the web changes, our 'Sentinel' agents deploy a patch to your system within 24 hours. Your business stays operational while the world adapts.")
 
-st.divider()
+st.write("---")
 
-# --- LIVE DEMO (POLÍGONO DE TIRO) ---
+# --- LIVE DEMO ---
 st.subheader("🔴 LIVE DEMO: Test The Engine")
-niche = st.text_input("Input a niche and watch Synergy extract, profile, and write a hyper-personalized email in seconds.", placeholder="e.g., 'Dentists in Austin' or 'SaaS Founders in London'")
+st.write("Input a niche and watch Synergy extract, profile, and write a hyper-personalized email in seconds.")
+
+niche = st.text_input("Target Niche:", placeholder="e.g., 'Dentists in Austin' or 'SaaS Founders in London'")
 
 if st.button("▶️ RUN LIVE EXTRACTION"):
     if niche:
@@ -106,25 +75,31 @@ if st.button("▶️ RUN LIVE EXTRACTION"):
             import time
             time.sleep(2)
             st.success(f"Target Acquired: 15 High-Value Leads found in {niche}.")
-            st.code(f"Analizing psychological profile for {niche} owners...\nGenerating Swarm Evolution pitch...")
+            st.code(f"Analyzing psychological profile for {niche} owners...\nGenerating Swarm Evolution pitch...")
     else:
         st.warning("Please enter a target niche.")
 
-st.divider()
+st.write("---")
 
-# --- PRICING RaaS ---
+# --- PRICING ---
 st.subheader("Choose Your Battle Fleet")
 p1, p2 = st.columns(2)
+
 with p1:
-    st.write("### PRO ENGINE")
-    st.markdown("<h2 class='highlight'>$497</h2>", unsafe_allow_html=True)
-    st.write("- 5 Autonomous Extraction Agents")
-    st.write("- Engine Evolution Protocol (90 days)")
-    st.write("- Standard Lead Profiling")
+    st.markdown("### PRO ENGINE")
+    st.markdown("## $497")
+    st.markdown("""
+    * **5 Autonomous Extraction Agents**
+    * Engine Evolution Protocol (90 days)
+    * Standard Lead Profiling
+    """)
+
 with p2:
-    st.write("### ELITE SWARM")
-    st.markdown("<h2 class='highlight'>$997</h2>", unsafe_allow_html=True)
-    st.write("- 20 Autonomous Agents + Manager")
-    st.write("- **Lifetime Evolution Protocol Access**")
-    st.write("- Advanced Psychological Profiling")
-    st.write("- Direct WhatsApp/Telegram Integration")
+    st.markdown("### ELITE SWARM")
+    st.markdown("## $997")
+    st.markdown("""
+    * **20 Autonomous Agents + Manager**
+    * **Lifetime Evolution Protocol Access**
+    * Advanced Psychological Profiling
+    * Direct WhatsApp/Telegram Integration
+    """)
