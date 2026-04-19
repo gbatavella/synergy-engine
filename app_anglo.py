@@ -5,23 +5,20 @@ st.set_page_config(page_title="Synergy AI | Autonomous Sales Engine", page_icon=
 st.markdown("""
 <style>
 /* BOTONES MASIVOS Y RESPLANDECIENTES */
-div[data-testid="stButton"] > button {
+div.stButton > button {
     background: linear-gradient(90deg, #FF0080 0%, #FF8C00 100%) !important;
     color: white !important;
     border: none !important;
-    padding: 1.8rem 2rem !important; /* Altura masiva */
-    font-size: 1.4rem !important; /* Texto enorme */
+    padding: 1.5rem 2rem !important; /* Altura masiva */
+    font-size: 1.3rem !important; /* Texto enorme */
     font-weight: 800 !important;
-    border-radius: 60px !important;
-    width: 100% !important;
+    border-radius: 50px !important;
     box-shadow: 0 12px 35px -5px rgba(255, 0, 128, 0.65) !important;
     transition: all 0.3s ease !important;
-    display: block !important;
-    margin: 0 auto !important;
     text-transform: uppercase !important;
     letter-spacing: 1px !important;
 }
-div[data-testid="stButton"] > button:hover {
+div.stButton > button:hover {
     transform: translateY(-4px) !important;
     box-shadow: 0 20px 45px -5px rgba(255, 0, 128, 0.8) !important;
 }
@@ -84,10 +81,11 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# Contenedor central extra-ancho para hacer el botón gigante
-_, col_btn, _ = st.columns([1, 4, 1])
+# Contenedor central. Proporción 1-2-1 para centrar perfecto y hacerlo ancho.
+_, col_btn, _ = st.columns([1, 2, 1])
 with col_btn:
-    st.button("🔥 DEPLOY MY SWARM NOW")
+    # EL PARCHE MÁGICO: use_container_width=True
+    st.button("🔥 DEPLOY MY SWARM NOW", use_container_width=True)
 st.markdown("<p style='text-align:center; color:#9CA3AF; font-size:0.9rem; margin-top:1rem;'>Instant access after payment. 3-minute deployment setup.</p>", unsafe_allow_html=True)
 
 st.write("<br><br>", unsafe_allow_html=True)
@@ -113,11 +111,10 @@ st.write("<br>", unsafe_allow_html=True)
 st.markdown("<h2>🔴 LIVE DEMO: Test The Engine</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center; color:#4B5563;'>Input a niche and watch Synergy extract, profile, and write a hyper-personalized email in seconds.</p>", unsafe_allow_html=True)
 
-# Contenedor central extra-ancho para el demo
-_, col_demo, _ = st.columns([1, 4, 1])
+_, col_demo, _ = st.columns([1, 2, 1])
 with col_demo:
     niche = st.text_input("", placeholder="e.g., 'Dentists in Austin' or 'SaaS Founders in London'", label_visibility="collapsed")
-    if st.button("▶️ RUN LIVE EXTRACTION", key="demo"):
+    if st.button("▶️ RUN LIVE EXTRACTION", key="demo", use_container_width=True):
         if niche:
             with st.spinner(f"Swarm deployed to {niche}... Extracting intelligence..."):
                 import time
@@ -145,7 +142,8 @@ with p1:
     </div>
     <br>
     """, unsafe_allow_html=True)
-    st.button("🚀 GET STANDARD LICENSE", key="btn_pro")
+    # EL PARCHE MÁGICO AQUÍ TAMBIÉN
+    st.button("🚀 GET STANDARD LICENSE", key="btn_pro", use_container_width=True)
 
 with p2:
     st.markdown("""
@@ -159,4 +157,5 @@ with p2:
     </div>
     <br>
     """, unsafe_allow_html=True)
-    st.button("⚡ UNLOCK ELITE SWARM", key="btn_elite")
+    # EL PARCHE MÁGICO AQUÍ TAMBIÉN
+    st.button("⚡ UNLOCK ELITE SWARM", key="btn_elite", use_container_width=True)
